@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.css">
+    <style>
+        .button {
+        width: 100%;
+        border-radius: 0%;
+        color: white;
+        border: none;
+    </style>
+</head>
+<body>
+<div>
+    <div class="row">
+        <div class="col-2" style="background-color: black; height: 100vh; width: 10%">
+            <nav class="navbar bg-body-tertiary" style="padding: 0px">
+                <div class="container-fluid" style="background-color: black">
+                    <a class="navbar-brand" href="#" style="background-color: black; color: white">
+                        <img src="https://avatars.mds.yandex.net/i?id=01041a8d526fb79c64269f3ea7e78b42_l-4034584-images-thumbs&n=13"
+                             alt="Logo" width="30" height="30"
+                             class="d-inline-block align-text-top">
+                        Меню
+                    </a>
+                </div>
+            </nav>
+            <div style="width: 100%; border: 1px solid gray; margin-left: 5px; margin-top: 10px; margin-bottom: 10px"></div>
+            <div class="row">
+                <a class="btn btn-primary button" href="" role="button">Главная</a>
+                <a class="btn btn-empty button" href="" role="button">Категории</a>
+                <a class="btn btn-empty button" href="" role="button">Заказы</a>
+                <a class="btn btn-empty button" href="" role="button">Контакты</a>
+            </div>
+            <div class="dropup-center dropup" style="position: absolute; bottom: 1px; padding-left: 10px">
+                <div style="width: 100%; border: 1px solid gray; margin-left: 5px; margin-top: 10px"></div>
+                <button type="button" class="btn btn-empty dropdown-toggle button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="background-color: transparent; color: white">
+                    Пользователь
+                </button>
+                <ul class="dropdown-menu" style="background-color: gray">
+                    <!-- Dropdown menu links -->
+                    <li>
+                        <button class="dropdown-item button" type="button">Профиль</button>
+                    </li>
+                    <li>
+                        <button class="dropdown-item button" type="button">Выход</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-10">
+            <h1 class="text-center" style="padding-top: 100px">Контакты</h1>
+            <div class="row" style="padding-left: 170px; gap: 175px; padding-top: 50px">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="form-container">
+                            <form>
+                                <p style="margin-left: 10px; margin-bottom: 0%; margin-top: 10px; font-weight: bold">
+                                    Имя</p>
+                                <input type="text" class="my-input"
+                                       style="margin-left: 10px; width: 96%; height: 40px; border-radius: 5px"/>
+                                <p style="margin-left: 10px; margin-bottom: 0%; margin-top: 10px; font-weight: bold">
+                                    Почта</p>
+                                <div class="input-group mb-3"
+                                     style="margin-left: 10px; width: 96%; height: 40px; border-radius: 5px">
+                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                    <input type="email" class="form-control"
+                                           aria-describedby="basic-addon1">
+                                </div>
+                                <p style="margin-left: 10px; margin-bottom: 0%; margin-top: 10px; font-weight: bold">
+                                    Сообщение</p>
+                                <textarea class="my-input"
+                                          style="margin-left: 10px; width: 96%; height: 70px; border-radius: 5px"></textarea>
+                                <button type="submit" class="btn btn-primary"
+                                        style="margin-left: 10px; margin-bottom: 15px; margin-top: 5px">Отправить
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5" style="padding-top: 15px">
+                    <div class="card" style="border: none">
+                        <h4>Наши контакты</h4>
+                        <p>
+                            Пример какого-то очень огромного текста. Здесь он будет отображаться и переноситься на
+                            другие строки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js">
+</script>
+</body>
+</html>
