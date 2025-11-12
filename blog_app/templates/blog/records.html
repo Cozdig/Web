@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Records{% endblock %}
+
+{% block content %}
+    {% include 'blog/main_menu.html' %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Список публикаций</h1>
+        <a href="{% url 'blog:record_create' %}" class="btn btn-primary mb-3">Создать новую публикацию</a>
+        <ul class="list-group">
+            {% for record in records %}
+                <li class="list-group-item">
+                    <img src="{{ record.preview.url }}" alt="{{ record.heading }}" height="50" width="50">
+                    <a href="{% url 'blog:record_detail' record.pk %}">{{ record.heading }}</a>
+                    <a href="{% url 'blog:record_edit' record.pk %}" class="btn btn-sm btn-secondary ml-3">Редактировать</a>
+                    <a href="{% url 'blog:record_delete' record.pk %}" class="btn btn-sm btn-danger ml-1">Удалить</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
