@@ -8,7 +8,7 @@ class RecordCreateView(CreateView):
     model = Record
     fields = ['heading', 'main_info', 'preview', 'publication_attribute']
     template_name = 'blog/record_form.html'
-    success_url = reverse_lazy('blog:records_list')
+    success_url = reverse_lazy('blog:record_list')
 
 class RecordListView(ListView):
     model = Record
