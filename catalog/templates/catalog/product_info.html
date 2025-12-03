@@ -1,0 +1,14 @@
+{% extends 'catalog/base.html' %}
+
+{% block title %}Skystore{% endblock %}
+
+{% block content %}
+    <p>Название: {{ product.name }}</p>
+    <p>Описание: {{ product.description|truncatechars:100}}</p>
+    <p>Категория: {{ product.category }}</p>
+    <p>Цена: {{ product.price }}</p>
+    <p>Дата создания: {{ product.create_date|date:"d M Y" }}</p>
+    <p>Дата изменения: {{ product.update_date|date:"d M Y" }}</p>
+    <p>Фотография: <img src="{{ product.image.url }}" alt="{{ name }}" height="150" width="150"></p>
+    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="{% url 'catalog:product_update' product.pk %}">Изменить</a>
+{% endblock %}
