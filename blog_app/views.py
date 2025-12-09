@@ -2,9 +2,10 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, DeleteView, CreateView, UpdateView
 from blog_app.models import Record
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-class RecordCreateView(CreateView):
+class RecordCreateView(LoginRequiredMixin, CreateView):
     model = Record
     fields = ['heading', 'main_info', 'preview', 'publication_attribute']
     template_name = 'blog/record_form.html'
@@ -18,7 +19,7 @@ class RecordListView(ListView):
     def get_queryset(self):
         return Record.objects.filter(publication_attribute=True)
 
-class RecordDetailView(DetailView):
+class RecordDetailView(LoginRequiredMixin, DetailView):
     model = Record
     template_name = 'blog/record_detail.html'
     context_object_name = 'record'
@@ -29,14 +30,14 @@ class RecordDetailView(DetailView):
         obj.save()
         return obj
 
-class RecordUpdateView(UpdateView):
+class RecordUpdateView(LoginRequiredMixin, UpdateView):
     model = Record
     fields = ['heading', 'main_info', 'preview', 'publication_attribute']
     template_name = 'blog/record_form.html'
     def get_success_url(self):
         return reverse_lazy('blog:record_detail', kwargs={'pk': self.object.pk})
 
-class RecordDeleteView(DeleteView):
+class RecordDeleteView(LoginRequiredMixin, DeleteView):
     model = Record
     template_name = 'blog/record_confirm_delete.html'
     success_url = reverse_lazy('blog:record_list')
