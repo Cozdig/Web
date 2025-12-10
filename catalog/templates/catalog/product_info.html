@@ -10,5 +10,12 @@
     <p>Дата создания: {{ product.create_date|date:"d M Y" }}</p>
     <p>Дата изменения: {{ product.update_date|date:"d M Y" }}</p>
     <p>Фотография: <img src="{{ product.image.url }}" alt="{{ name }}" height="150" width="150"></p>
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="{% url 'catalog:product_update' product.pk %}">Изменить</a>
+    {% if product.owner == user %}
+        <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="{% url 'catalog:product_update' product.pk %}">Изменить</a>
+    {% endif %}
+
+    {% if perms.catalog.delete_product or product.owner == user %}
+        <a href="{% url 'catalog:product_delete' product.pk %}" class="btn btn-danger">Удалить</a>
+    {% endif %}
+
 {% endblock %}

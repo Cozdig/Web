@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import CustomUser
 
 # Create your models here.
 
@@ -15,6 +16,7 @@ class Category(models.Model):
         ordering = ['name', ]
 
 class Product(models.Model):
+    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="products")
     name = models.CharField(max_length=150, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     image = models.ImageField(upload_to='product/', verbose_name="Изображение")

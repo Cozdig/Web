@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'image', 'category', 'price']
+        fields = ['name', 'description', 'image', 'category', 'price', 'is_publicate']
 
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)
@@ -34,6 +34,10 @@ class ProductForm(forms.ModelForm):
         self.fields['price'].widget.attrs.update({
             'class': 'form-control',
             'placeholder': 'Назначьте цену'
+        })
+
+        self.fields['is_publicate'].widget.attrs.update({
+            'class': 'form-check-input'
         })
 
     def clean_description(self):
