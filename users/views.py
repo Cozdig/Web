@@ -1,15 +1,12 @@
-import os
-
-from dotenv import load_dotenv
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.core.mail import send_mail
 
+from config import settings
 from .forms import CustomUserCreationForm
 
 
 # Create your views here.
-load_dotenv(override=True)
 
 class RegisterView(CreateView):
     template_name = 'user/register.html'
@@ -24,6 +21,6 @@ class RegisterView(CreateView):
     def send_welcome_email(self, user_email):
         subject = "Добро пожаловать на наш сервис"
         message = "Спасибо за регистрацию"
-        from_email = os.getenv('EMAIL')
+        from_email = settings.DEFAULT_FROM_EMAIL
         recipient_list = [user_email, ]
         send_mail(subject, message, from_email, recipient_list)
